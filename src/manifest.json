@@ -1,0 +1,21 @@
+{
+  "manifest_version": 2,
+  "name": "Todo List for Chrome",
+  "icons": { "128": "icon.png" },
+
+  "description": "Your todo list in a Chrome extension",
+  "version": "1.0",
+
+  "browser_action": {
+    "default_popup": "popup.html"
+  },
+
+  "author": "antoinechalifour <antoine.chalifour@gmail.com>",
+  "background": {
+    "scripts": ["background.js"]
+  },
+
+  "permissions": [
+    "storage"
+  ]
+}
