@@ -21,12 +21,6 @@ const Container = styled.div`
 const Nav = () => (
   <Container>
     <NavLink
-      to='/all'
-      activeStyle={{ textDecoration: 'underline' }}
-    >
-      All
-    </NavLink>
-    <NavLink
       to='/todo'
       activeStyle={{ textDecoration: 'underline' }}
     >
@@ -38,10 +32,16 @@ const Nav = () => (
     >
       Done
     </NavLink>
+    <NavLink
+      to='/all'
+      activeStyle={{ textDecoration: 'underline' }}
+    >
+      All
+    </NavLink>
     <Route
       exact
       path='/'
-      render={() => <Redirect to='/all' />}
+      render={() => <Redirect to='/todo' />}
     />
   </Container>
 )
