@@ -1,5 +1,7 @@
 import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 import TodoList from './TodoList'
+import * as actions from '../../actions/todos'
 
 const mapStateToProps = (state, ownProps) => {
   let todos
@@ -13,4 +15,8 @@ const mapStateToProps = (state, ownProps) => {
   return { todos }
 }
 
-export default connect(mapStateToProps)(TodoList)
+const mapDispatchToProps = dispatch => ({
+  actions: bindActionCreators(actions, dispatch)
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(TodoList)

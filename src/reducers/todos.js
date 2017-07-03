@@ -27,6 +27,25 @@ const reducer = (state = [], action) => {
     case actions.REMOVE_TODO:
       return state.filter(x => x.id !== action.id)
 
+    case actions.MOVE_TODO:
+      const nextState = []
+      const movedTodo = state.find(x => x.id === action.id)
+      console.log(action)
+
+      state.forEach(todo => {
+        if (todo.id === action.id) {
+          return
+        }
+
+        nextState.push(todo)
+
+        if (todo.id === action.next) {
+          nextState.push(movedTodo)
+        }
+      })
+
+      return nextState
+
     default:
       return state
   }
