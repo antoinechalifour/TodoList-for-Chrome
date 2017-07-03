@@ -11,7 +11,7 @@ const persistStore = store => next => action => {
 }
 
 chrome.storage.sync.get('store', data => {
-  const initialState = JSON.parse(data.store)
+  const initialState = data && data.store ? JSON.parse(data.store) : {}
   const store = createStore(
     reducers,
     initialState,
