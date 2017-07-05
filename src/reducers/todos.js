@@ -27,6 +27,18 @@ const reducer = (state = [], action) => {
     case actions.REMOVE_TODO:
       return state.filter(x => x.id !== action.id)
 
+    case actions.UPDATE_TODO:
+      return state.map(x => {
+        if (x.id !== action.id) {
+          return x
+        }
+
+        return {
+          ...x,
+          text: action.text
+        }
+      })
+
     default:
       return state
   }
